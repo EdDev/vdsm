@@ -12,4 +12,4 @@ before_install:
   - docker pull edwardhaas/ovirt-vdsm-dev
 
 script:
-  - docker run --rm=true -it -v `pwd`:/vdsm:rw edwardhaas/ovirt-vdsm-dev /bin/bash -c "cd /vdsm && ./autogen.sh --system && make; make check-unit"
+  - docker run --rm=true -it -v `pwd`:/vdsm:rw edwardhaas/ovirt-vdsm-dev /bin/bash -c "yum install -y psmisc which python-ioprocess && cd /vdsm && ./autogen.sh --system && make; make check"
